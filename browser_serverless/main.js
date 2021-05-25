@@ -1,8 +1,17 @@
-(function(storyContent) {
-
-    var story = new inkjs.Story(storyContent);
+(function() {
+	
+	var story;
 
     var storyContainer = document.querySelectorAll('#story')[0];
+
+	fetch('story.json')
+	.then(function(response){
+		return response.text();
+	})
+	.then(function(storyContent){
+		story = new inkjs.Story(storyContent);
+		continueStory();
+	});
 
     function showAfter(delay, el) {
         setTimeout(function() { el.classList.add("show") }, delay);
@@ -86,6 +95,4 @@
         scrollToBottom();
     }
 
-    continueStory();
-
-})(storyContent);
+})();
