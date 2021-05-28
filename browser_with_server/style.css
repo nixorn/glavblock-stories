@@ -37,3 +37,12 @@ p.choice {
 a:hover {
     color: black;
 }
+
+.stats_container {
+    overflow: hidden;
+}
+
+.stats {
+    float: left;
+    margin: 5px;
+}

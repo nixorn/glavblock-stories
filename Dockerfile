@@ -8,6 +8,5 @@ RUN unzip inklecate_linux.zip
 ENV DROP_CACHE=$(date)
 COPY browser_with_server /usr/share/nginx/html
 COPY src src
-COPY browser_with_server /usr/share/nginx/html
 RUN ./inklecate -o story.json src/root.ink
 RUN mv story.json /usr/share/nginx/html/

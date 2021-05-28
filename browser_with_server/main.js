@@ -1,5 +1,10 @@
 (function() {
-	
+
+  function updateTextContent(id, body) {
+    var elementVar = document.getElementById(id);
+    elementVar.textContent = body;
+  }
+
 	var story;
 
     var storyContainer = document.querySelectorAll('#story')[0];
@@ -11,6 +16,42 @@
 	.then(function(storyContent){
 		story = new inkjs.Story(storyContent);
 		continueStory();
+    updateTextContent(
+      "block_name",
+      "Блок " + story.EvaluateFunction("gen_block_name")
+    );
+    updateTextContent (
+      "civil",
+      story.variablesState["CIVIL"]
+    );
+    updateTextContent (
+      "labor",
+      story.variablesState["LABOR"]
+    )
+    updateTextContent (
+      "military",
+      story.variablesState["MILITARY"]
+    )
+    updateTextContent (
+      "sciencists",
+      story.variablesState["SCIENCISTS"]
+    )
+    updateTextContent (
+      "outlaws",
+      story.variablesState["OUTLAWS"]
+    )
+    updateTextContent (
+      "space",
+      story.variablesState["SPACE"]
+    )
+    updateTextContent (
+      "concentrat",
+      story.variablesState["CONCENTRAT"]
+    )
+    updateTextContent (
+      "turn",
+      story.variablesState["TURN"]
+    )
 	});
 
     function showAfter(delay, el) {

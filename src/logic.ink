@@ -1,5 +1,3 @@
-
-
 == entry_divert ==
   {RANDOM(1, 4):
   - 1: -> start_as_military
@@ -7,8 +5,6 @@
   - 3: -> start_as_labor
   - 4: -> start_as_outlaw
   }
-
-
 
 == start_as_military ==
     Вы начинаете как глава блокпоста.
