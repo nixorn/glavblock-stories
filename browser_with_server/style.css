@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     font-weight: lighter;
+    margin: 0;
 }
 
 h1 {
@@ -10,7 +11,6 @@ h1 {
 
 .container {
     display: block;
-    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -38,11 +38,30 @@ a:hover {
     color: black;
 }
 
+#story {
+    overflow-y: auto;
+}
+
 .stats_container {
     overflow: hidden;
+    min-width: 150px;
 }
 
 .stats {
-    float: left;
+    float: top;
     margin: 5px;
+}
+
+.root {
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+}
+
+.paragraph-group {
+    font-weight: 400;
+}
+
+.paragraph-group:last-of-type p {
+    color: #222222;
 }

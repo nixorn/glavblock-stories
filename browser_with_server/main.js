@@ -27,7 +27,6 @@
         var start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         var dist = document.body.scrollHeight - window.innerHeight - start;
         if( dist < 0 ) return;
-
         var duration = 300 + 300*dist/100;
         var startTime = null;
         function step(time) {
@@ -44,6 +43,9 @@
     var paragraphIndex = 0;
     var delay = 0.0;
 
+    var groupElement = document.createElement('div');
+    groupElement.classList.add("paragraph-group");
+
     // Generate story text - loop through available content
     while(story.canContinue) {
 
@@ -53,14 +55,14 @@
       // Create paragraph element
       var paragraphElement = document.createElement('p');
       paragraphElement.innerHTML = paragraphText;
-      storyContainer.appendChild(paragraphElement);
+      groupElement.appendChild(paragraphElement);
 
       // Fade in paragraph after a short delay
       showAfter(delay, paragraphElement);
 
       delay += 200.0;
     }
-
+    storyContainer.appendChild(groupElement);
     // Create HTML choices from ink choices
     story.currentChoices.forEach(function(choice) {
 
@@ -96,7 +98,7 @@
       });
     });
 
-        updateTextContent(
+    updateTextContent(
       "block_name",
       "Блок " + story.EvaluateFunction("gen_block_name")
     );
@@ -121,10 +123,6 @@
       story.variablesState["OUTLAWS"]
     )
     updateTextContent (
-      "space",
-      story.variablesState["SPACE"]
-    )
-    updateTextContent (
       "concentrat",
       story.variablesState["CONCENTRAT"]
     )
@@ -133,7 +131,10 @@
       story.variablesState["TURN"]
     )
 
-    scrollToBottom();
+    // scrollToBottom();
+    // scroll
+    var objDiv = document.getElementById("story");
+      objDiv.scrollTop = objDiv.scrollHeight;
     }
 
 })();
